@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>Simple Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f2f5;
+       background-image: url("texture.jpg");
+  background-size: cover;        
+  background-position: center;      
+  background-repeat: no-repeat;     
+  height: 100vh;                    
+  margin: 0;                      
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .nav {
+      margin-bottom: 30px;
+    }
+
+    .nav a button {
+      margin: 5px;
+      padding: 10px 15px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .nav a button:hover {
+      background-color: #0056b3;
+    }
+
+    .calculator {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .buttons button {
+      padding: 10px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+    }
+
+    .buttons button:hover {
+      background-color: #1e7e34;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+ 
+  <div class="nav">
+    <a href="Main.html"><button>Main Page</button></a>
+    <a href="calculator.html"><button>Calculator</button></a>
+    <a href="bmi.html"><button>BMI Checker</button></a>
+    <a href="incometax.html"><button>Tax Calculator</button></a>
+    <a href="convert.html"><button>Unit Converter</button></a>
+  </div>
+
+  
+  <div class="calculator">
+    <h1>Simple Calculator</h1>
+    <input type="text" id="num1" placeholder="Enter first number">
+    <br>
+    <input type="text" id="num2" placeholder="Enter second number">
+    <div class="buttons">
+      <button onclick="calculate('+')">Add</button>
+      <button onclick="calculate('-')">Subtract</button>
+      <button onclick="calculate('*')">Multiply</button>
+      <button onclick="calculate('/')">Divide</button>
+    </div>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function calculate(op) {
+      var a = Number(document.getElementById("num1").value);
+      var b = Number(document.getElementById("num2").value);
+      var result = 0;
+
+      if (op == '+') result = a + b;
+      else if (op == '-') result = a - b;
+      else if (op == '*') result = a * b;
+      else if (op == '/') {
+        if (b === 0) {
+          document.getElementById("result").innerHTML = "Error: Cannot divide by zero!";
+          return;
+        }
+        result = a / b;
+      }
+
+      document.getElementById("result").innerHTML = "Result: " + result;
+    }
+  </script>
+
+</body>
+</html>

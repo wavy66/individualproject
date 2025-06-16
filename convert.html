@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>Unit Converter</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5;  background-image: url("texture.jpg");
+  background-size: cover;        
+  background-position: center;      
+  background-repeat: no-repeat;     
+  height: 100vh;                    
+  margin: 0;                      
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50pxdisplay: flex; flex-direction: column; align-items: center; padding: 50px; }
+    .nav a button { margin: 5px; padding: 10px 15px; border: none; background-color: #007bff; color: white; border-radius: 5px; cursor: pointer; }
+    .nav a button:hover { background-color: #0056b3; }
+    .box { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; width: 320px; }
+    input { padding: 10px; width: 80%; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc; }
+    .buttons button { padding: 8px 15px; margin: 5px; border: none; border-radius: 5px; background-color: #17a2b8; color: white; cursor: pointer; }
+    .buttons button:hover { background-color: #117a8b; }
+    #convertResult { margin-top: 20px; font-weight: bold; color: #444; }
+  </style>
+</head>
+<body>
+
+  <div class="nav">
+    <a href="Main.html"><button>Main Page</button></a>
+    <a href="calculator.html"><button>Calculator</button></a>
+    <a href="bmi.html"><button>BMI Checker</button></a>
+    <a href="incometax.html"><button>Tax Calculator</button></a>
+    <a href="convert.html"><button>Unit Converter</button></a>
+  </div>
+
+  <div class="box">
+    <h1>Unit Converter</h1>
+    <input type="text" id="value" placeholder="Enter value">
+    <div class="buttons">
+      <button onclick="convert('cm-m')">cm → m</button>
+      <button onclick="convert('m-cm')">m → cm</button>
+      <button onclick="convert('m-km')">m → km</button>
+      <button onclick="convert('km-m')">km → m</button>
+    </div>
+    <p id="convertResult"></p>
+  </div>
+
+  <script>
+    function convert(type) {
+      var val = Number(document.getElementById("value").value);
+      var result = 0;
+      if (type == 'cm-m') result = val / 100;
+      else if (type == 'm-cm') result = val * 100;
+      else if (type == 'm-km') result = val / 1000;
+      else if (type == 'km-m') result = val * 1000;
+      document.getElementById("convertResult").innerHTML = "Result: " + result;
+    }
+  </script>
+
+</body>
+</html>
